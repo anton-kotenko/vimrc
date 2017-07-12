@@ -1,6 +1,10 @@
 syntax on
 set nopaste
 filetype plugin indent on
+
+" install pathogen before enabling it
+" mkdir -p ~/.vim/autoload ~/.vim/bundle
+"curl -LSsvo ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 execute pathogen#infect()
 set shiftwidth=4
 set expandtab
@@ -42,6 +46,24 @@ set wildmenu
 "to delimit max line length
 set colorcolumn=121
 hi colorcolumn ctermbg=6
+
+"enable syntax checkers for javascript using
+"https://github.com/vim-syntastic/syntastic
+"eslint required in global $PATH so do:
+"npm install -g eslint
+let g:syntastic_javascript_checkers = ['eslint']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+        \ "mode": "passive",
+        \ "active_filetypes": [],
+        \ "passive_filetypes": [] }
 
 "set spell
 map ё `
